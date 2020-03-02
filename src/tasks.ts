@@ -31,6 +31,7 @@ export default class Tasks extends BasicList {
       source.push({
         label: `${task.name.padEnd(25)}` + `<${task.scope}>`.padEnd(10) + `:  ${task.command}`,
         data: task,
+        filterText: task.name,
         location: Uri.file(task.source).toString()
       })
     }
