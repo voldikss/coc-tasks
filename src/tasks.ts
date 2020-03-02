@@ -28,6 +28,7 @@ export default class Tasks extends BasicList {
     const source: ListItem[] = []
     const tasks: TaskItem[] = await this.nvim.call('asynctasks#list', [''])
     for (const task of tasks) {
+      if (/^\./.test(task.name)) continue
       source.push({
         label: `${task.name.padEnd(25)}` + `<${task.scope}>`.padEnd(10) + `:  ${task.command}`,
         data: task,
