@@ -2,7 +2,7 @@
 
 CocList support for [asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)
 
-![](https://user-images.githubusercontent.com/20282795/75661073-99550080-5ca7-11ea-97fd-27e447633f0b.png)
+![](https://user-images.githubusercontent.com/20282795/75665130-a6c1b900-5cae-11ea-89a1-c2fcca223d71.png)
 
 ## Requirements
 
