@@ -43,9 +43,9 @@ export default class Tasks extends BasicList {
     nvim.command('syntax match TaskName /^\\S\\+/', true)
     nvim.command('hi def link TaskName Constant', true)
     nvim.command('syn match TaskScope /\\s\\+<.*>\\s\\+:/', true)
-    nvim.command('hi def link TaskScope Statement', true)
+    nvim.command('hi def link TaskScope Type', true)
     nvim.command('syn match TaskCommand /.*/ contains=TaskName,TaskScope', true)
-    nvim.command('hi def link TaskCommand String', true)
+    nvim.command('hi def link TaskCommand Comment', true)
     nvim.resumeNotification().catch(_e => {
       // nop
     })
