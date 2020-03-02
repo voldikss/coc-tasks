@@ -3,7 +3,7 @@ import {
   listManager,
   workspace
 } from 'coc.nvim'
-import Tasks from './lists/tasks'
+import Tasks from './tasks'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const { nvim } = workspace

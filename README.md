@@ -21,7 +21,10 @@ CocList support for [asynctasks.vim](https://github.com/skywind3000/asynctasks.v
 
 Try `:CocList tasks`
 
+- `run`
 - `open`
+- `preview`
+- ...
 
 ## License
 

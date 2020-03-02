@@ -4,7 +4,8 @@ import {
   ListContext,
   ListItem,
   Neovim,
-  BasicList
+  BasicList,
+  Uri
 } from 'coc.nvim'
 
 export default class Tasks extends BasicList {
@@ -16,20 +17,21 @@ export default class Tasks extends BasicList {
   constructor(nvim: Neovim) {
     super(nvim)
 
+    this.addLocationActions()
+
     this.addAction('run', (item: ListItem) => {
-      this.nvim.command(`AsyncTask ${item.data}`, true)
+      this.nvim.command(`AsyncTask ${item.data.name}`, true)
     })
   }
 
   public async loadItems(_context: ListContext): Promise<ListItem[]> {
     const source: ListItem[] = []
-    // const columns = parseInt((await this.nvim.eval('&columns')).toString(), 10)
-    const rows = await this.nvim.call('asynctasks#', Math.floor(columns * 48 / 100))
-    for (const row of rows) {
-      let name = row[0]
+    const tasks: TaskItem[] = await this.nvim.call('asynctasks#list', [''])
+    for (const task of tasks) {
       source.push({
-        label: `${name}  ${row[1]}  :  ${row[2]}`,
-        data: name
+        label: `${task.name.padEnd(25)}` + `<${task.scope}>`.padEnd(10) + `:  ${task.command}`,
+        data: task,
+        location: Uri.file(task.source).toString()
       })
     }
     return source
@@ -48,4 +50,11 @@ export default class Tasks extends BasicList {
       // nop
     })
   }
+}
+
+interface TaskItem {
+  source: string,
+  name: string,
+  scope: string,
+  command: string
 }
