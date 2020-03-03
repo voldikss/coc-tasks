@@ -26,6 +26,11 @@ export default class Tasks extends BasicList {
 
   public async loadItems(_context: ListContext): Promise<ListItem[]> {
     const source: ListItem[] = []
+    const has = await this.nvim.eval('exists("*asynctasks#list")')
+    if (has.valueOf() == 0) {
+      workspace.showMessage('Please install https://github.com/skywind3000/asynctasks.vim', 'error')
+      return []
+    }
     const tasks: TaskItem[] = await this.nvim.call('asynctasks#list', [''])
     for (const task of tasks) {
       if (/^\./.test(task.name)) continue
