@@ -1,6 +1,6 @@
 {
   "name": "coc-tasks",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Tasks list and macros completion support for asynctasks.vim",
   "main": "lib/index.js",
   "publisher": "voldikss",
