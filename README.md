@@ -1,5 +1,8 @@
 # coc-tasks
 
+![publish](https://github.com/voldikss/coc-tasks/workflows/publish/badge.svg)
+[![npm version](https://badge.fury.io/js/coc-tasks.svg)](https://badge.fury.io/js/coc-tasks)
+
 Tasks list and macros completion support for [asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)
 
 ### List
@@ -63,10 +66,6 @@ Try `:CocList tasks`
 - `open`
 - `preview`
 - ...
-
-## Feedback
-
-⭐ || ☕
 
 ## License
 

@@ -1,14 +1,10 @@
 import {
-  CompletionItemProvider,
-} from 'coc.nvim'
-import {
   CompletionItem,
   CompletionItemKind,
+  CompletionItemProvider,
   Position,
-} from 'vscode-languageserver-protocol'
-import {
   TextDocument
-} from 'vscode-languageserver-textdocument'
+} from 'coc.nvim'
 
 const ASYNCTASKS_MACROS = [
   ["VIM_FILEPATH", "File name of current buffer with full path", "/home/voldikss/dotfiles/home/.config/nvim/autoload/coc/source/tasks.vim"],
@@ -26,11 +22,20 @@ const ASYNCTASKS_MACROS = [
   ["VIM_CLINE", "Cursor line number in current buffer", "28"],
   ["VIM_VERSION", "Value of v:version", "800"],
   ["VIM_SVRNAME", "Value of v:servername for +clientserver usage", "/tmp/nvimfOsenC/0"],
-  ["VIM_COLUMNS", "How many columns in vim's screen", "153"], ["VIM_LINES", "How many lines in vim's screen", "40"], ["VIM_GUI", "Is running under gui ?", "0"], ["VIM_ROOT", "Project root directory", "/home/voldikss/dotfiles"], ["VIM_DIRNAME", "Name of current directory", "source"], ["VIM_PRONAME", "Name of current project root directory", "dotfiles"], ["VIM_PROFILE", "Current building profile (debug/release/...)", "debug"],
+  ["VIM_COLUMNS", "How many columns in vim's screen", "153"],
+  ["VIM_LINES", "How many lines in vim's screen", "40"],
+  ["VIM_GUI", "Is running under gui ?", "0"],
+  ["VIM_ROOT", "Project root directory", "/home/voldikss/dotfiles"],
+  ["VIM_DIRNAME", "Name of current directory", "source"],
+  ["VIM_PRONAME", "Name of current project root directory", "dotfiles"],
+  ["VIM_PROFILE", "Current building profile (debug/release/...)", "debug"],
 ]
 
 export class TasksMacroCompletionProvider implements CompletionItemProvider {
-  public provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
+  public provideCompletionItems(
+    document: TextDocument,
+    position: Position
+  ): CompletionItem[] {
     const prechar = document.getText({
       start: {
         line: position.line,
