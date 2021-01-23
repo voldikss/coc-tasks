@@ -13,6 +13,10 @@ Tasks list and macros completion support for [asynctasks.vim](https://github.com
 
 ![](https://user-images.githubusercontent.com/20282795/94645816-6519ef00-031f-11eb-9f64-3282fa1c8a8b.gif)
 
+### Hover
+
+no demos
+
 ## Requirements
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
@@ -27,11 +31,6 @@ Tasks list and macros completion support for [asynctasks.vim](https://github.com
 ## Configurations
 
 ```jsonc
-"tasks.enableCompletion": {
-  "type": "boolean",
-  "default": true,
-  "description": "Whether to enable tasks macros completion"
-},
 "tasks.shortcut": {
   "type": "string",
   "default": "TASKS"
