@@ -22,7 +22,7 @@ export default class TasksMacroHoverProvider implements HoverProvider {
     const hover: Hover = {
       contents: {
         kind: 'markdown',
-        value: `${description}\ne.g. \`${example}\``
+        value: description + (example != '' ? `\ne.g. \`${example}\`` : ''),
       }
     }
     return hover

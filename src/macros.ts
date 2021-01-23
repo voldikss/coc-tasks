@@ -3,35 +3,35 @@ import { workspace } from "coc.nvim"
 const ASYNCTASKS_MACROS = {
   VIM_FILEPATH: {
     description: "File name of current buffer with full path",
-    example: "/home/voldikss/dotfiles/home/.config/nvim/autoload/coc/source/tasks.vim"
+    example: "/home/voldikss/naiveproject/main.c"
   },
   VIM_FILENAME: {
     description: "File name of current buffer without path",
-    example: "tasks.vim"
+    example: "main.c"
   },
   VIM_FILEDIR: {
     description: "Full path of current buffer without the file name",
-    example: "/home/voldikss/dotfiles/home/.config/nvim/autoload/coc/source"
+    example: "/home/voldikss/naiveproject"
   },
   VIM_FILEEXT: {
     description: "File extension of current buffer",
-    example: ".vim"
+    example: ".c"
   },
   VIM_FILETYPE: {
     description: "File type (value of &ft in vim)",
-    example: "vim"
+    example: "c"
   },
   VIM_FILENOEXT: {
     description: "File name of current buffer without path and extension",
-    example: "tasks"
+    example: "main"
   },
   VIM_PATHNOEXT: {
     description: "Current file name with full path but without extension",
-    example: "/home/voldikss/dotfiles/home/.config/nvim/autoload/coc/source/tasks"
+    example: "/home/voldikss/naiveproject/main"
   },
   VIM_CWD: {
     description: "Current directory",
-    example: "/home/voldikss/dotfiles/home/.config/nvim/autoload/coc/source"
+    example: "/home/voldikss/naiveproject"
   },
   VIM_RELDIR: {
     description: "File path relativize to current directory",
@@ -39,19 +39,19 @@ const ASYNCTASKS_MACROS = {
   },
   VIM_RELNAME: {
     description: "File name relativize to current directory",
-    example: "tasks.vim"
+    example: "main.c"
   },
   VIM_CWORD: {
     description: "Current word under cursor",
-    example: "Word under cursor"
+    example: ""
   },
   VIM_CFILE: {
     description: "Current filename under cursor",
-    example: "File name under cursor"
+    example: ""
   },
   VIM_CLINE: {
     description: "Cursor line number in current buffer",
-    example: "28"
+    example: ""
   },
   VIM_VERSION: {
     description: "Value of v:version",
@@ -62,26 +62,28 @@ const ASYNCTASKS_MACROS = {
     example: "/tmp/nvimfOsenC/0"
   },
   VIM_COLUMNS: {
-    description: "How many columns in vim's screen", example: "153"
+    description: "How many columns in vim's screen",
+    example: ""
   },
   VIM_LINES: {
-    description: "How many lines in vim's screen", example: "40"
+    description: "How many lines in vim's screen",
+    example: ""
   },
   VIM_GUI: {
     description: "Is running under gui ?",
-    example: "0"
+    example: ""
   },
   VIM_ROOT: {
     description: "Project root directory",
-    example: "/home/voldikss/dotfiles"
+    example: "/home/voldikss/naiveproject"
   },
   VIM_DIRNAME: {
     description: "Name of current directory",
-    example: "source"
+    example: "naiveproject"
   },
   VIM_PRONAME: {
     description: "Name of current project root directory",
-    example: "dotfiles"
+    example: "naiveproject"
   },
   VIM_PROFILE: {
     description: "Current building profile (debug/release/...)",

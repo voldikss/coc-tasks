@@ -27,7 +27,7 @@ export class TasksMacroCompletionProvider implements CompletionItemProvider {
       return {
         label: macro,
         kind: CompletionItemKind.Constant,
-        documentation: `${description}\ne.g. \`${example}\``,
+        documentation: description + (example != '' ? `\ne.g. \`${example}\`` : ''),
         insertText: prechar == '$' ? `(${macro})` : macro,
       }
     })
