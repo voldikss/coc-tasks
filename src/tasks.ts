@@ -13,6 +13,7 @@ export default class Tasks extends BasicList {
   public readonly description = 'CocList for asynctasks.vim'
   public readonly defaultAction = 'run'
   public actions: ListAction[] = []
+  private lastItem: ListItem | null = null
 
   constructor(nvim: Neovim) {
     super(nvim)
@@ -20,8 +21,15 @@ export default class Tasks extends BasicList {
     this.addLocationActions()
 
     this.addAction('run', (item: ListItem) => {
+      this.lastItem = item
       this.nvim.command(`AsyncTask ${item.data.name}`, true)
     })
+  }
+
+  public async runLastAction() {
+    if (this.lastItem !== null) {
+      await this.nvim.command(`AsyncTask ${this.lastItem.data.name}`, true)
+    }
   }
 
   public async loadItems(_context: ListContext): Promise<ListItem[]> {

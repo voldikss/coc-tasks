@@ -2,7 +2,8 @@ import {
   ExtensionContext,
   listManager,
   workspace,
-  languages
+  languages,
+  commands
 } from 'coc.nvim'
 import Tasks from './tasks'
 import { TasksMacroCompletionProvider } from './completion'
@@ -13,10 +14,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
   const { subscriptions } = context
   const config = workspace.getConfiguration('tasks')
 
+  const taskList = new Tasks(nvim)
+
   subscriptions.push(
-    listManager.registerList(
-      new Tasks(nvim)
-    )
+    listManager.registerList(taskList),
+
+    commands.registerCommand('tasks.runLastAction', async () => {
+      await taskList.runLastAction()
+    }),
   )
 
   subscriptions.push(
