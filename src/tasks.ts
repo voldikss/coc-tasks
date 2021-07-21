@@ -26,7 +26,7 @@ export default class Tasks extends BasicList {
     })
   }
 
-  public async runLastAction() {
+  public async runLastTask() {
     if (this.lastItem !== null) {
       await this.nvim.command(`AsyncTask ${this.lastItem.data.name}`, true)
     }

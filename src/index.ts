@@ -19,8 +19,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
   subscriptions.push(
     listManager.registerList(taskList),
 
-    commands.registerCommand('tasks.runLastAction', async () => {
-      await taskList.runLastAction()
+    commands.registerCommand('tasks.runLastTask', async () => {
+      await taskList.runLastTask()
     }),
   )
 
